@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Convolutional Neural Network</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">My Projects</a>
+					</header>
+
+				<!-- Nav -->
+				<nav id="nav">
+					<ul class="links">
+						<li class="active"><a href="index.html">My Projects</a></li>
+						<li><a href="generic.html">About Me</a></li>
+					</ul>
+					<ul class="icons">
+						<li><a href="https://github.com/Goodmanc1998" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					</ul>
+				</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Image Upscaling using a Convolutional Neural Network </h1>
+									<p>A group project in which Neural Networks are investigated in order to create a Convolutional Neural Network which is used to upscale low resolution game textures.</p>
+								</header>
+								<div class="image main"><img src="images/CNN.png" alt="" /></div>								
+								<h2>What is a CNN?</h2>
+								<p>A Convolutional Neural Network (CNN) is a network which can break down the data within an image in order to highlight features in order to allow for training on the network inorder to create output filters. This is done through multiple convolutional and pooling layers which then feed into a connected network in order to process the image into a classification.								</p>
+								<p>The Convolutional Layers are used in order to break down all the image pixel data into different layers. This could be stored for R,G,B colours meaning 3 layers are used to store the data relative to each pixel within the image, these layers can be changed depending on the image. These layers are then stored into kernels, this is used to store a convoluted feature. This is stored through casting an area of the image (3x3) and storing the resulting matrix within the kernel layer. The casting process moves across the images in strides by moving one across until the end of the image then repeating this for all rows. With each kernel storing each colour channel these individual kernels can be added together with a bias to get an output variable.</p>
+
+								<div class="image"><img src="images/CNNExampleOne.png" alt="" /></div>
+
+								<p><span class="image left"><img src="images/CNNExampleTwo.png" alt="" /></span>With reference to upscaling and downscaling images padding can be applied to the kernel's process images which can have their original size changed. Same Padding is applied to images in which the images size remains the same, valid padding allows the edge variables to be extended out with the original size.</p>
+
+								<br>
+								<br>
+								<br>
+
+								<header>
+
+								
+								<h2>Our CNN</h2>
+								<p>A breakdown of our network architecture is shown below.</p>
+								</header>
+									<pre><code>
+inputs = tf.keras.Input(shape=(128, 128, 3))
+# Data Augmentation
+x = data_augmentation(inputs)
+# Convolutional Base
+x = layers.UpSampling2D((2,2))(x)
+x = layers.UpSampling2D((2,2))(x)
+x = layers.UpSampling2D((2,2))(x)
+x = layers.Conv2D(filters=32, kernel_size=6, activation="relu", padding="same")(x)
+x = layers.Conv2D(filters=16, kernel_size=1, activation="relu", padding="same")(x)
+outputs = layers.Conv2D(filters=3, kernel_size=3, padding="same")(x)
+model = tf.keras.Model(inputs, outputs)
+									</code></pre>
+
+									<p>Further breakdowns can be located below with the Programmers Manual showing the process required to create this CNN, a User's Manual showing how to use the application within the Unity Editor or as an Application and the GitHub Repository where this work can be found and downloaded.</p>
+
+								<ul class="actions special">
+									<li><a href="https://drive.google.com/file/d/1JP5j7CQzTT3VpIAonWmIvgpIUPs-Hsb5/view?usp=sharing" class="button">Programmers Manual</a></li>
+									<li><a href="https://drive.google.com/file/d/1IahkmmeZgiz-OS_GIyCs8uMysGXU4Ioa/view?usp=sharing" class="button">Users Manual</a></li>
+									<li><a href="https://github.com/CMCSHE201/AI_Neural_Networks" class="button">GitHub Repository</a></li>
+
+								</ul>
+
+							</section>
+
+							
+
+					</div>
+
+				<!-- Footer -->
+                <footer id="footer">
+                    <section class="split contact">
+                        <section>
+                            <h3>Email</h3>
+                            <p><a href="#">Goodmanc1998@gmail.com</a></p>
+                        </section>
+                        <section>
+                            <h3>Social</h3>
+                            <ul class="icons alt">
+                                <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+                            </ul>
+                        </section>
+                    </section>
+                </footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

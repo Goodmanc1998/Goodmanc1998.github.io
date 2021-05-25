@@ -4687,3 +4687,15 @@ input, select, textarea {
 		}
 
 	}
+
+.icon.image{
+	border-radius: 30%;
+	border: 2px solid #ffffff;
+	display: flex;
+}
+
+.square{
+	width:10px;
+	height:10px;
+
+}
