@@ -3233,6 +3233,7 @@ input, select, textarea {
 		color: #eeeeee;
 	}
 
+
 /* Wrapper */
 
 	#wrapper {
@@ -3258,6 +3259,7 @@ input, select, textarea {
 			background-repeat: repeat,								no-repeat,													no-repeat;
 			background-attachment: scroll,								scroll,														scroll;
 			z-index: -1;
+			
 		}
 
 			#wrapper > .bg.fixed {
